@@ -1,0 +1,3 @@
+[submodule "CharacterDemo/Plugins/CSUSeniorProjectAnimationSetup"]
+	path = CharacterDemo/Plugins/CSUSeniorProjectAnimationSetup
+	url = https://github.com/ChristianHinko/CSUSeniorProjectAnimationSetup.git
