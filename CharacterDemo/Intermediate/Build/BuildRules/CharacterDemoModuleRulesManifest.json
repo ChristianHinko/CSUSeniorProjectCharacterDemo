@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\Christian Hinkle\\Documents\\Unreal Projects\\CSUSeniorProjectCharacterDemo\\CharacterDemo\\Source\\CharacterDemo\\CharacterDemo.Build.cs",
+		"C:\\Users\\Christian Hinkle\\Documents\\Unreal Projects\\CSUSeniorProjectCharacterDemo\\CharacterDemo\\Source\\CharacterDemo.Target.cs",
+		"C:\\Users\\Christian Hinkle\\Documents\\Unreal Projects\\CSUSeniorProjectCharacterDemo\\CharacterDemo\\Source\\CharacterDemoEditor.Target.cs"
+	],
+	"EngineVersion": "5.1.0"
+}
