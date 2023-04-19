@@ -1,5 +1,5 @@
 [submodule "CharacterDemo/Plugins/CSUSeniorProjectAnimationSetup"]
-	path = CharacterDemo/Plugins/CSUSeniorProjectAnimationSetup
+	path = CharacterDemo/Plugins/AnimationSetup
 	url = https://github.com/ChristianHinko/CSUSeniorProjectAnimationSetup.git
 [submodule "CharacterDemo/Plugins/GameCore"]
 	path = CharacterDemo/Plugins/GameCore
