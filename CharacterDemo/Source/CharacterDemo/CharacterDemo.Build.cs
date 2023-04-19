@@ -10,7 +10,12 @@ public class CharacterDemo : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "InputCore" });
+		PrivateDependencyModuleNames.AddRange(
+				new string[] {
+					"AnimationSetup",
+					"GameplayTags"
+				}
+			);
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

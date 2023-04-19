@@ -8,6 +8,10 @@
 #include "CDCharacter.generated.h"
 
 
+class UASActorComponent_SkinlessSkeletalMesh;
+class UASActorComponent_AttachmentAttacher;
+
+
 
 /**
  * 
@@ -17,4 +21,16 @@ class CHARACTERDEMO_API ACDCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+protected:
+	UPROPERTY(VisibleAnywhere, Category="AnimationSetup")
+		TObjectPtr<UASActorComponent_SkinlessSkeletalMesh> SkinlessSkeletalMeshComponent;
+	UPROPERTY(VisibleAnywhere, Category="AnimationSetup")
+		TObjectPtr<UASActorComponent_AttachmentAttacher> AttachmentAttacherComponent;
+
+public:
+	ACDCharacter(const FObjectInitializer& ObjectInitializer);
+
+	//  BEGIN AActor interface
+	virtual void PostRegisterAllComponents() override;
+	//  END AActor interface
 };
