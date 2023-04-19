@@ -8,6 +8,8 @@
 #include "ActorComponents/ASActorComponent_SkinlessSkeletalMesh.h"
 #include "ActorComponents/ASActorComponent_AttachmentAttacher.h"
 #include "ActorComponents/ASActorComponent_PortrayalAssignment.h"
+#include "Portrayals/ASPortrayalDefinition_ViewerList.h"
+#include "Utilities/CDNativeGameplayTags.h"
 
 
 
@@ -30,4 +32,27 @@ void ACDCharacter::PostRegisterAllComponents()
 	Super::PostRegisterAllComponents();
 
 	AttachmentAttacherComponent->SpawnAttachments();
+
+	// Add us to the first person portrayals' view actor lists.
+	// This is assuming that we are in first person.
+	for (const AActor* Attachment : AttachmentAttacherComponent->GetAttachments())
+	{
+		UASActorComponent_PortrayalAssignment* PortrayalAssignmentComponent = Attachment->FindComponentByClass<UASActorComponent_PortrayalAssignment>();
+		if (IsValid(PortrayalAssignmentComponent))
+		{
+			UASPortrayalDefinition* PortrayalDefinition = PortrayalAssignmentComponent->GetInstancedPortrayalDefinition(CDNativeGameplayTags::Portrayal_FirstPerson);
+			UASPortrayalDefinition_ViewerList* FirstPersonPortrayalDefinitionInstance = Cast<UASPortrayalDefinition_ViewerList>(PortrayalDefinition);
+			if (IsValid(FirstPersonPortrayalDefinitionInstance))
+			{
+				PortrayalAssignmentComponent->UnapplyPortrayals();
+
+				if (IsValid(FirstPersonPortrayalDefinitionInstance))
+				{
+					FirstPersonPortrayalDefinitionInstance->ActorList.Add(this);
+				}
+
+				PortrayalAssignmentComponent->ApplyPortrayals();
+			}
+		}
+	}
 }
